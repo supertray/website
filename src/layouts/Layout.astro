@@ -1,0 +1,44 @@
+---
+import '../index.css';
+import '@radix-ui/colors/orange.css';
+import '@radix-ui/colors/sand.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Supertray - {title}</title>
+  </head>
+  <body class="h-[200vh]">
+    <header id="nav" class="sticky top-0 flex justify-between max-w-[1440px] mx-auto px-6 py-4 align-center">
+      <h2 class="text-xl font-bold">Supertray</h2>
+      <div>
+        <a href="#waitlist">Join Waitlist</a>
+      </div>
+    </header>
+    <slot />
+  </body>
+</html>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('#nav');
+    if (!header) return;
+    if (window.scrollY > 1) {
+      header.classList.add('shadow-sm', 'backdrop-blur-xl');
+    } else {
+      header.classList.remove('shadow-sm', 'backdrop-blur-xl');
+    }
+  });
+</script>
