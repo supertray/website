@@ -20,9 +20,12 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Supertray - {title}</title>
   </head>
-  <body class="h-[200vh]">
-    <header id="nav" class="sticky top-0 flex justify-between max-w-[1440px] mx-auto px-6 py-4 align-center">
-      <h2 class="text-xl font-bold">Supertray</h2>
+  <body class="h-[200vh] bg-sand-1">
+    <header
+      id="nav"
+      class="sticky z-20 top-0 flex justify-between max-w-[1440px] mx-auto px-6 py-4 align-center text-sand-1/90"
+    >
+      <h2 class="text-xl font-bold text-sand-12">Supertray</h2>
       <div>
         <a href="#waitlist">Join Waitlist</a>
       </div>
@@ -36,9 +39,9 @@ const { title } = Astro.props;
     const header = document.querySelector('#nav');
     if (!header) return;
     if (window.scrollY > 1) {
-      header.classList.add('shadow-sm', 'backdrop-blur-xl');
+      header.classList.add('shadow-sm', 'backdrop-blur-md');
     } else {
-      header.classList.remove('shadow-sm', 'backdrop-blur-xl');
+      header.classList.remove('shadow-sm', 'backdrop-blur-md');
     }
   });
 </script>

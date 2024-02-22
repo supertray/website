@@ -1,0 +1,30 @@
+---
+interface Props {
+  displayName: string;
+  time: string;
+  avatar: string;
+  style?: {
+    rotate?: string;
+    margin?: string;
+  };
+}
+
+const props = Astro.props;
+---
+
+<div
+  class="inline-flex items-start gap-2 bg-sand-1/50 ring-[1px] ring-black/[0.06] shadow-[0_2px_6px] shadow-black/10 backdrop-blur-xl w-[326px] p-2.5 rounded-2xl"
+  style={{
+    transform: `translate3d(0,0,0) rotate(${props.style?.rotate || '0deg'})`,
+    margin: props.style?.margin || '0px',
+  }}
+>
+  <img src={props.avatar} alt={props.displayName} class="w-9 h-9 rounded-[7px]" />
+  <div class="-my-1">
+    <div class="flex items-baseline gap-2">
+      <span class="text-[15px] leading-[22px] font-bold text-gray-12">{props.displayName}</span>
+      <span class="text-[12px] leading-[15px] inline-flex text-gray-11">{props.time}</span>
+    </div>
+    <p class="inline-flex text-[15px] leading-[22px]"><slot /></p>
+  </div>
+</div>
