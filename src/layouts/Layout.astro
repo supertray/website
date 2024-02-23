@@ -5,9 +5,13 @@ import '@radix-ui/colors/sand.css';
 
 interface Props {
   title: string;
+  i18nAlternates?: {
+    lang: 'de' | 'en';
+    href: string;
+  }[];
 }
 
-const { title } = Astro.props;
+const { title, i18nAlternates } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,15 +23,16 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Supertray - {title}</title>
+    {i18nAlternates?.map((alternate) => <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />)}
+    <slot name="head" />
   </head>
-  <body class="h-[200vh] bg-sand-1">
-    <header
-      id="nav"
-      class="sticky z-20 top-0 flex justify-between max-w-[1440px] mx-auto px-6 py-4 align-center text-sand-1/90"
-    >
-      <h2 class="text-xl font-bold text-sand-12">Supertray</h2>
-      <div>
-        <a href="#waitlist">Join Waitlist</a>
+  <body class="h-[200vh] bg-sand-1 dark:bg-sand-2">
+    <header id="nav" class="sticky z-20 top-0">
+      <div class="max-w-[1440px] mx-auto flex justify-between px-6 py-4 align-center transition">
+        <h2 class="text-xl font-bold text-sand-12">Supertray</h2>
+        <div>
+          <slot name="nav-right" />
+        </div>
       </div>
     </header>
     <slot />
@@ -39,9 +44,9 @@ const { title } = Astro.props;
     const header = document.querySelector('#nav');
     if (!header) return;
     if (window.scrollY > 1) {
-      header.classList.add('shadow-sm', 'backdrop-blur-md');
+      header.classList.add('shadow-sm', 'backdrop-blur-md', 'bg-sand-1/80');
     } else {
-      header.classList.remove('shadow-sm', 'backdrop-blur-md');
+      header.classList.remove('shadow-sm', 'backdrop-blur-md', 'bg-sand-1/80');
     }
   });
 </script>

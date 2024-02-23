@@ -1,0 +1,74 @@
+---
+import { Picture } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+
+import { data } from '../../data/index.js';
+import SlackMessage from '../../components/SlackMessage.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils.js';
+
+export async function getStaticPaths() {
+  return [{ params: { lang: 'de' } }, { params: { lang: 'en' } }];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title="Home"
+  i18nAlternates={[
+    { lang: 'de', href: '/de/' },
+    { lang: 'en', href: '/en/' },
+  ]}
+>
+  <a slot="right-nav" href="#waitlist">{t('joinWaitlist')}</a>
+  <picture>
+    <source srcset="/rainbow-bg.webp" type="image/webp" />
+    <source srcset="/rainbow-bg.png" type="image/png" />
+    <img
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+      decoding="async"
+      loading="lazy"
+      alt="background"
+      class="absolute w-[1440px] top-[-151px] z-[1] pointer-events-none"
+    />
+  </picture>
+  <main class="text-sand-12 relative z-[2]">
+    <div class="container-small mt-16">
+      <h2 class="text-[1.75rem] leading-[2.375rem] tracking-[0.2px] font-bold">
+        {t('headline1')}<br />
+        <Fragment set:html={t('headline2')} />
+      </h2>
+    </div>
+    <div class="flex justify-center max-w-full overflow-x-hidden py-10">
+      <div class="flex items-start scale-75 lg:scale-90 xl:scale-100">
+        {
+          data.slackMessages.map((messages, index) => (
+            <div
+              class:list={{
+                'z-[4] -mr-[15px]': index === 0,
+                'z-[3]': index === 1,
+                'z-[2]': index === 2,
+                'z-[1]': index === 3,
+              }}
+            >
+              {messages.map(({ index, ...data }) => (
+                <>
+                  {/* @ts-expect-error */}
+                  <SlackMessage
+                    {...data}
+                    displayName={t(`slackMessages.${index}.displayName`)}
+                    time={t(`slackMessages.${index}.time`)}
+                  >
+                    {/* @ts-expect-error */}
+                    <Fragment set:html={t(`slackMessages.${index}.message`)} />
+                  </SlackMessage>
+                </>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>

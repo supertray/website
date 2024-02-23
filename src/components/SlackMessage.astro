@@ -13,13 +13,26 @@ const props = Astro.props;
 ---
 
 <div
-  class="inline-flex items-start gap-2 bg-sand-1/50 ring-[1px] ring-black/[0.06] shadow-[0_2px_6px] shadow-black/10 backdrop-blur-xl w-[326px] p-2.5 rounded-2xl"
+  class="flex select-none items-start gap-2 bg-sand-2/50 dark:bg-sand-4/40 ring-[1px] ring-black/[0.06] dark:ring-sand-11/20 shadow-[0_2px_6px] shadow-black/10 backdrop-blur-xl w-[326px] p-2.5 rounded-2xl"
   style={{
     transform: `translate3d(0,0,0) rotate(${props.style?.rotate || '0deg'})`,
     margin: props.style?.margin || '0px',
   }}
 >
-  <img src={props.avatar} alt={props.displayName} class="w-9 h-9 rounded-[7px]" />
+  <div class="w-9 h-9 shrink-0 relative">
+    <picture>
+      <source srcset={`${props.avatar}.webp`} type="image/webp" />
+      <source srcset={`${props.avatar}.png`} type="image/png" />
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+        decoding="async"
+        loading="lazy"
+        alt={props.displayName}
+        class="w-9 h-9 rounded-[7px] bg-sand-5 pointer-events-none"
+      />
+    </picture>
+    <div class="absolute z-[1] inset-0 select-none"></div>
+  </div>
   <div class="-my-1">
     <div class="flex items-baseline gap-2">
       <span class="text-[15px] leading-[22px] font-bold text-gray-12">{props.displayName}</span>
