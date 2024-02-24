@@ -19,6 +19,13 @@ const homeCollection = defineCollection({
     paragraphs: z.array(z.string()),
     featureHeadline: z.string(),
     featureParagraph: z.string(),
+    featureGrid: z.array(
+      z.object({
+        headline: z.string(),
+        paragraph: z.string(),
+        icon: z.string(),
+      }),
+    ),
   }),
 });
 

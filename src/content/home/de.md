@@ -38,4 +38,23 @@ paragraphs:
   - p3
 featureHeadline: h
 featureParagraph: p4
+featureGrid:
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
 ---

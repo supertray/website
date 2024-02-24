@@ -82,7 +82,7 @@ const t = useTranslations(lang);
 
                 return (
                   <>
-                    {/* @ts-expect-error */}
+                    {/* @ts-ignore */}
                     <SlackMessage {...data} class={className}>
                       <Fragment set:html={message} />
                     </SlackMessage>

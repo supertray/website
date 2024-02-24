@@ -40,4 +40,23 @@ paragraphs:
 
 featureHeadline: This is where Supertray comes into play.
 featureParagraph: With Supertray, we are revolutionizing document management by offering innovative features that make collaboration more efficient, transparent and secure, while <strong class="font-extrabold">all key components</strong> are and will remain <strong class="font-extrabold">open source</strong>.
+featureGrid:
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
+  - headline: headline
+    paragraph: paragraph
+    icon: icon
 ---
