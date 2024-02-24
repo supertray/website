@@ -1,19 +1,37 @@
 ---
-import { Picture } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 
-import { data } from '../../data/index.js';
 import SlackMessage from '../../components/SlackMessage.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils.js';
+import { getEntry } from 'astro:content';
+import clsx from 'clsx';
 
 export async function getStaticPaths() {
-  return [{ params: { lang: 'de' } }, { params: { lang: 'en' } }];
+  return [
+    {
+      params: {
+        lang: 'de',
+      },
+      props: {
+        content: await getEntry('home', 'de'),
+      },
+    },
+    {
+      params: { lang: 'en' },
+      props: {
+        content: await getEntry('home', 'en'),
+      },
+    },
+  ];
 }
+
+const content = Astro.props.content;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
+{/* eslint-disable @typescript-eslint/ban-ts-comment */}
 <Layout
   title="Home"
   i18nAlternates={[
@@ -36,14 +54,14 @@ const t = useTranslations(lang);
   <main class="text-sand-12 relative z-[2]">
     <div class="container-small mt-16">
       <h2 class="text-[1.75rem] leading-[2.375rem] tracking-[0.2px] font-bold">
-        {t('headline1')}<br />
-        <Fragment set:html={t('headline2')} />
+        <Fragment set:html={content.data.headline1} /><br />
+        <Fragment set:html={content.data.headline2} />
       </h2>
     </div>
     <div class="flex justify-center max-w-full overflow-x-hidden py-10">
       <div class="flex items-start scale-75 lg:scale-90 xl:scale-100">
         {
-          data.slackMessages.map((messages, index) => (
+          content.data.slackMessages.map((messages, index) => (
             <div
               class:list={{
                 'z-[4] -mr-[15px]': index === 0,
@@ -52,23 +70,45 @@ const t = useTranslations(lang);
                 'z-[1]': index === 3,
               }}
             >
-              {messages.map(({ index, ...data }) => (
-                <>
-                  {/* @ts-expect-error */}
-                  <SlackMessage
-                    {...data}
-                    displayName={t(`slackMessages.${index}.displayName`)}
-                    time={t(`slackMessages.${index}.time`)}
-                  >
+              {messages.map(({ message, index, ...data }) => {
+                const className = clsx({
+                  'rotate-[5deg]': index === 0,
+                  '-rotate-2 mt-[20px]': index === 1,
+                  'rotate-[-4deg] mt-[-3px] ml-[15px]': index === 2,
+                  'rotate-3 mt-[7px] ml-[-40px]': index === 3,
+                  '-rotate-2 mt-[-5px] ml-[-10px]': index === 4,
+                  'rotate-1 mt-[3px] ml-[-25px]': index === 5,
+                });
+
+                return (
+                  <>
                     {/* @ts-expect-error */}
-                    <Fragment set:html={t(`slackMessages.${index}.message`)} />
-                  </SlackMessage>
-                </>
-              ))}
+                    <SlackMessage {...data} class={className}>
+                      <Fragment set:html={message} />
+                    </SlackMessage>
+                  </>
+                );
+              })}
             </div>
           ))
         }
       </div>
+    </div>
+    <div class="container-small">
+      {
+        content.data.paragraphs.map((p) => (
+          <p class="text-lg font-medium mb-3">
+            <Fragment set:html={p} />
+          </p>
+        ))
+      }
+    </div>
+    <div class="py-6"></div>
+    <div class="container-small">
+      <h3 class="text-[1.75rem] leading-[2.375rem] tracking-[0.2px] font-bold mb-5">{content.data.featureHeadline}</h3>
+      <p class="text-lg font-medium mb-10">
+        <Fragment set:html={content.data.featureParagraph} />
+      </p>
     </div>
   </main>
 </Layout>

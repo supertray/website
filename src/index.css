@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 .container {
-  @apply mx-auto max-w-screen-lg;
+  @apply mx-auto max-w-screen-lg px-6;
 }
 
 .container-small {
-  @apply max-w-[640px] mx-auto;
+  @apply max-w-[688px] mx-auto px-6;
 }

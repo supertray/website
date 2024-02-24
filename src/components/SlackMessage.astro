@@ -3,10 +3,11 @@ interface Props {
   displayName: string;
   time: string;
   avatar: string;
-  style?: {
-    rotate?: string;
-    margin?: string;
-  };
+  class: string;
+  // style?: {
+  //   rotate?: string;
+  //   margin?: string;
+  // };
 }
 
 const props = Astro.props;
@@ -14,9 +15,10 @@ const props = Astro.props;
 
 <div
   class="flex select-none items-start gap-2 bg-sand-2/50 dark:bg-sand-4/40 ring-[1px] ring-black/[0.06] dark:ring-sand-11/20 shadow-[0_2px_6px] shadow-black/10 backdrop-blur-xl w-[326px] p-2.5 rounded-2xl"
+  class:list={[props.class]}
   style={{
-    transform: `translate3d(0,0,0) rotate(${props.style?.rotate || '0deg'})`,
-    margin: props.style?.margin || '0px',
+    // transform: `translate3d(0,0,0) rotate(${props.style?.rotate || '0deg'})`,
+    // margin: props.style?.margin || '0px',
   }}
 >
   <div class="w-9 h-9 shrink-0 relative">
