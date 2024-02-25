@@ -1,5 +1,5 @@
 ---
-headline1: Working with documents is broken.
+headline1: Working paperless with documents is broken.
 headline2: We are fixing it in the cloud or <span class="text-orange-10">on your server.</span>
 slackMessages:
   - - displayName: Sebastian
