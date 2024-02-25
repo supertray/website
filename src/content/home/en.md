@@ -41,22 +41,22 @@ paragraphs:
 featureHeadline: This is where Supertray comes into play.
 featureParagraph: With Supertray, we are revolutionizing document management by offering innovative features that make collaboration more efficient, transparent and secure, while <strong class="font-extrabold">all key components</strong> are and will remain <strong class="font-extrabold">open source</strong>.
 featureGrid:
-  - headline: headline
-    paragraph: paragraph
-    icon: icon
-  - headline: headline
-    paragraph: paragraph
-    icon: icon
-  - headline: headline
-    paragraph: paragraph
-    icon: icon
-  - headline: headline
-    paragraph: paragraph
-    icon: icon
-  - headline: headline
-    paragraph: paragraph
-    icon: icon
-  - headline: headline
-    paragraph: paragraph
-    icon: icon
+  - headline: Open Source
+    paragraph: We will release all core components required to host Supertray on your own under an open source license.
+    icon: globe
+  - headline: AI Based Recognition
+    paragraph: By using an optional AI module, Supertray can automatically classify documents and extract data from them.
+    icon: magic
+  - headline: Integratable & Extendable
+    paragraph: Supertray offers an API and integrates with other software to ensure smooth data exchange.
+    icon: puzzle
+  - headline: Versioning & Archives
+    paragraph: Supertray offers revision-proof versioning and archiving, ensuring compliance with all regulations.
+    icon: version
+  - headline: Workflows
+    paragraph: Supertray offers an open API and integrates with other software to ensure smooth data exchange.
+    icon: flow
+  - headline: Design-Driven
+    paragraph: Developed with design in mind, Supertray has an intuitive user interface that provides a pleasant working environment.
+    icon: window
 ---

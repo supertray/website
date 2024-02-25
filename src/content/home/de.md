@@ -41,20 +41,20 @@ featureParagraph: p4
 featureGrid:
   - headline: headline
     paragraph: paragraph
-    icon: icon
+    icon: globe
   - headline: headline
     paragraph: paragraph
-    icon: icon
+    icon: magic
   - headline: headline
     paragraph: paragraph
-    icon: icon
+    icon: puzzle
   - headline: headline
     paragraph: paragraph
-    icon: icon
+    icon: version
   - headline: headline
     paragraph: paragraph
-    icon: icon
+    icon: flow
   - headline: headline
     paragraph: paragraph
-    icon: icon
+    icon: window
 ---

@@ -5,6 +5,7 @@ import SlackMessage from '../../components/SlackMessage.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils.js';
 import { getEntry } from 'astro:content';
 import clsx from 'clsx';
+import RemixIcon from '../../components/RemixIcon.astro';
 
 export async function getStaticPaths() {
   return [
@@ -106,9 +107,22 @@ const t = useTranslations(lang);
     <div class="py-6"></div>
     <div class="container-small">
       <h3 class="text-[1.75rem] leading-[2.375rem] tracking-[0.2px] font-bold mb-5">{content.data.featureHeadline}</h3>
-      <p class="text-lg font-medium mb-10">
+      <p class="text-lg font-medium">
         <Fragment set:html={content.data.featureParagraph} />
       </p>
+    </div>
+    <div class="container grid grid-cols-1 md:grid-cols-2 gap-5 my-10">
+      {
+        content.data.featureGrid.map((f) => (
+          <div class="bg-sand-3/75 p-5 rounded-xl ring-1 ring-sand-12/20 shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <RemixIcon name={f.icon} className="w-5 h-5" />
+              <div class="text-lg leading-5 font-bold">{f.headline}</div>
+            </div>
+            <p class="text-base leading-5">{f.paragraph}</p>
+          </div>
+        ))
+      }
     </div>
   </main>
 </Layout>

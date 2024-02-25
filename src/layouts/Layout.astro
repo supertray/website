@@ -26,7 +26,7 @@ const { title, i18nAlternates } = Astro.props;
     {i18nAlternates?.map((alternate) => <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />)}
     <slot name="head" />
   </head>
-  <body class="h-[200vh] bg-sand-1 dark:bg-sand-2">
+  <body class="min-h-screen bg-sand-1 dark:bg-sand-2">
     <header id="nav" class="sticky z-20 top-0">
       <div class="max-w-[1440px] mx-auto flex justify-between px-6 py-4 align-center transition">
         <h2 class="text-xl font-bold text-sand-12">Supertray</h2>
