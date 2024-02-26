@@ -63,8 +63,7 @@ module.exports = {
     },
 
     {
-      files: ['**/*.ts'],
-
+      files: ['src/**/*.ts'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: './tsconfig.eslint.json',
