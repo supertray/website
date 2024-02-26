@@ -29,6 +29,15 @@ const homeCollection = defineCollection({
   }),
 });
 
+const legalCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    content: z.string(),
+  }),
+});
+
 export const collections = {
   home: homeCollection,
+  legal: legalCollection,
 };

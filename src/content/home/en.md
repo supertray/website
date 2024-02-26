@@ -1,5 +1,5 @@
 ---
-headline1: Working paperless with documents is broken.
+headline1: Paperless office is not working.
 headline2: We are fixing it in the cloud or <span class="text-orange-10">on your server.</span>
 slackMessages:
   - - displayName: Sebastian
@@ -37,6 +37,7 @@ paragraphs:
   - Collaborating with documents and files is complicated, misleading and repetitive. People often spend an unnecessary amount of time searching, organizing and sharing documents.
   - Versioning conflicts and manual approval processes slow down workflows and lead to frustration. The lack of transparency and security around document sharing can lead to data leaks and compliance risks.
   - Conventional document management solutions attempted to address these issues with cumbersome, overloaded, and confusing user interfaces, largely rooted in outdated concepts from the 1990s. These solutions tend to be proprietary, costly, lacking in extensibility and customization options. Their approach often requires organizations to conform their workflows to fit the software, rather than tailoring the software to suit the organization's needs.
+  - Modern solutions oftens lack the necessary features to ensure compliance with regulations and standards.
 
 featureHeadline: This is where Supertray comes into play.
 featureParagraph: With Supertray, we are revolutionizing document management by offering innovative features that make collaboration more efficient, transparent and secure, while <strong class="font-extrabold">all key components</strong> are and will remain <strong class="font-extrabold">open source</strong>.

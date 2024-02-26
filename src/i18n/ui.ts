@@ -10,12 +10,12 @@ export type Lang = keyof typeof languages;
 export const ui = {
   en: {
     'joinWaitlist': 'Join Waitlist',
-    'footer.imprint': 'Imprint',
+    'footer.legal': 'Legal Notice',
     'footer.privacy': 'Privacy',
   },
   de: {
     'joinWaitlist': 'Warteliste beitreten',
-    'footer.imprint': 'Impressum',
+    'footer.legal': 'Impressum',
     'footer.privacy': 'Datenschutz',
   },
 } as const;

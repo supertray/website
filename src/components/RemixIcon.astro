@@ -1,6 +1,8 @@
 ---
+export type Icon = keyof typeof icons;
+
 interface Props {
-  name: keyof typeof icons;
+  name: Icon;
   className?: string;
 }
 

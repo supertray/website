@@ -2,6 +2,8 @@
 import '../index.css';
 import '@radix-ui/colors/orange.css';
 import '@radix-ui/colors/sand.css';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { languages } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -12,10 +14,16 @@ interface Props {
 }
 
 const { title, i18nAlternates } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const langs = Object.keys(languages);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -26,16 +34,46 @@ const { title, i18nAlternates } = Astro.props;
     {i18nAlternates?.map((alternate) => <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />)}
     <slot name="head" />
   </head>
-  <body class="min-h-screen bg-sand-1 dark:bg-sand-2">
+  <body class="min-h-screen w-full bg-sand-1 dark:bg-sand-2 flex flex-col">
     <header id="nav" class="sticky z-20 top-0">
-      <div class="max-w-[1440px] mx-auto flex justify-between px-6 py-4 align-center transition">
+      <div class="max-w-[1440px] w-full mx-auto flex justify-between px-6 py-4 align-center transition">
         <h2 class="text-xl font-bold text-sand-12">Supertray</h2>
-        <div>
+        <div class="flex items-center gap-5">
+          <div class="flex items-center gap-0.5">
+            {
+              langs.map((l) => (
+                <a
+                  href={`/${Astro.url.pathname.replace(/^\/(de|en)/, l)}`}
+                  class="text-sand-12 uppercase rounded-sm text-center px-1.5 py-0.5 -my-0.5 transition"
+                  class:list={{
+                    'font-medium pointer-events-none bg-transparent': lang === l,
+                    'text-opacity-50 hover:text-opacity-100 hover:bg-sand-4': lang !== l,
+                  }}
+                >
+                  {l}
+                </a>
+              ))
+            }
+          </div>
           <slot name="nav-right" />
         </div>
       </div>
     </header>
     <slot />
+    <div class="flex-grow" aria-hidden="true"></div>
+    <footer class="block">
+      <div class="flex justify-between max-w-[1440px] w-full mx-auto p-6">
+        <div>© {year}</div>
+        <div class="text-sm flex items-center gap-4">
+          <a href={`/${lang}/legal`}>
+            {t('footer.legal')}
+          </a>
+          <a href={`/${lang}/privacy`}>
+            {t('footer.privacy')}
+          </a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
 

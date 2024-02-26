@@ -1,0 +1,40 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return [
+    {
+      params: {
+        lang: 'de',
+      },
+      props: {
+        content: await getEntry('legal', 'de'),
+      },
+    },
+    {
+      params: { lang: 'en' },
+      props: {
+        content: await getEntry('legal', 'en'),
+      },
+    },
+  ];
+}
+
+const { content } = Astro.props;
+---
+
+<Layout
+  title={content.data.title}
+  i18nAlternates={[
+    { href: '/en/imprint', lang: 'en' },
+    { href: '/de/imprint', lang: 'de' },
+  ]}
+>
+  <div class="container-small w-full py-16">
+    <h1 class="text-3xl font-bold mb-10">{content.data.title}</h1>
+    <p>
+      <Fragment set:html={content.data.content} />
+    </p>
+  </div>
+</Layout>

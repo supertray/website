@@ -1,5 +1,5 @@
 ---
-headline1: Papierloses Arbeiten funktioniert nicht.
+headline1: Das papierlose Büro funktioniert nicht.
 headline2: Mit uns schon. In der Cloud oder <span class="text-orange-10">auf deinem Server.</span>
 slackMessages:
   - - displayName: Sebastian

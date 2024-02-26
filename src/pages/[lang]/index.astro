@@ -5,6 +5,7 @@ import SlackMessage from '../../components/SlackMessage.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils.js';
 import { getEntry } from 'astro:content';
 import clsx from 'clsx';
+import type { Icon } from '../../components/RemixIcon.astro';
 import RemixIcon from '../../components/RemixIcon.astro';
 
 export async function getStaticPaths() {
@@ -41,7 +42,7 @@ const t = useTranslations(lang);
   ]}
 >
   <a slot="right-nav" href="#waitlist">{t('joinWaitlist')}</a>
-  <picture>
+  <picture class="w-screen overflow-hidden absolute top-[-151px] z-[0] pointer-events-none h-[912px]">
     <source srcset="/rainbow-bg.webp" type="image/webp" />
     <source srcset="/rainbow-bg.png" type="image/png" />
     <img
@@ -49,7 +50,9 @@ const t = useTranslations(lang);
       decoding="async"
       loading="lazy"
       alt="background"
-      class="absolute w-[1440px] top-[-151px] z-[1] pointer-events-none"
+      width="1440"
+      height="912"
+      class="absolute left-1/2 -translate-x-1/2 w-[1440px] h-[912px] object-cover pointer-events-none"
     />
   </picture>
   <main class="text-sand-12 relative z-[2]">
@@ -59,8 +62,8 @@ const t = useTranslations(lang);
         <Fragment set:html={content.data.headline2} />
       </h2>
     </div>
-    <div class="flex justify-center max-w-full overflow-x-hidden py-10">
-      <div class="flex items-start scale-75 lg:scale-90 xl:scale-100">
+    <div class="flex justify-center max-w-full overflow-x-hidden -my-10 md:-my-8 lg:-my-5 xl:my-0 md:py-10">
+      <div class="flex flex-col md:flex-row items-start scale-75 md:scale-[0.66] lg:scale-[0.85] xl:scale-100">
         {
           content.data.slackMessages.map((messages, index) => (
             <div
@@ -95,16 +98,18 @@ const t = useTranslations(lang);
         }
       </div>
     </div>
-    <div class="container-small">
+    <div class="container-small space-y-3">
       {
         content.data.paragraphs.map((p) => (
-          <p class="text-lg font-medium mb-3">
+          <p class="text-lg font-medium">
             <Fragment set:html={p} />
           </p>
         ))
       }
     </div>
-    <div class="py-6"></div>
+    <div class="py-10 max-w-40 mx-auto">
+      <hr class="border-2 rounded-full border-sand-4/50" />
+    </div>
     <div class="container-small">
       <h3 class="text-[1.75rem] leading-[2.375rem] tracking-[0.2px] font-bold mb-5">{content.data.featureHeadline}</h3>
       <p class="text-lg font-medium">
@@ -114,9 +119,9 @@ const t = useTranslations(lang);
     <div class="container grid grid-cols-1 md:grid-cols-2 gap-5 my-10">
       {
         content.data.featureGrid.map((f) => (
-          <div class="bg-sand-3/75 p-5 rounded-xl ring-1 ring-sand-12/20 shadow-sm">
+          <div class="bg-sand-3/75 p-5 rounded-xl ring-1 ring-sand-12/[0.12] shadow-sm">
             <div class="flex items-center gap-3 mb-4">
-              <RemixIcon name={f.icon} className="w-5 h-5" />
+              <RemixIcon name={f.icon as Icon} className="w-5 h-5" />
               <div class="text-lg leading-5 font-bold">{f.headline}</div>
             </div>
             <p class="text-base leading-5">{f.paragraph}</p>
