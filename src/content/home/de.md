@@ -20,7 +20,7 @@ slackMessages:
       index: 2
   - - displayName: Alexander
       avatar: /avatar/alex
-      message: OMG… Ich habe den Vertrag als B4-final im Ordner kunden/acme/projekte/website-relaunch/freelancer gefunden…<br />Ist das wirklich die finale Version?
+      message: Oh man... Ich habe den Vertrag als B4-final im Ordner kunden/acme/projekte/website-relaunch/freelancer gefunden…<br />Ist das wirklich die finale Version?
       time: '11:44'
       index: 3
   - - displayName: Susanne
