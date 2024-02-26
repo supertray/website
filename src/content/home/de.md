@@ -34,12 +34,12 @@ slackMessages:
       time: '13:56'
       index: 5
 paragraphs:
-  - Die Zusammenarbeit mit Dokumenten und Dateien gestaltet sich oft kompliziert, ist irreführend und zeitaufwändig. Menschen verbringen unnötig viel Zeit damit, Dokumente zu suchen, zu organisieren und zu teilen.
+  - Die Zusammenarbeit mit Dokumenten und Dateien gestaltet sich oft kompliziert, ist irreführend und zeitaufwändig. Mitarbeiter verbringen unnötig viel Zeit damit, Dokumente zu suchen, zu organisieren und zu teilen.
   - Versionierungskonflikte und manuelle Genehmigungsprozesse bremsen Arbeitsabläufe aus und führen zu Frustration. Ein Mangel an Transparenz und Sicherheit beim Teilen von Dokumenten kann zu Datenlecks und Compliance-Risiken führen.
-  - Herkömmliche Dokumentenverwaltungslösungen haben versucht, diese Probleme mit umständlichen, überladenen und verwirrenden Benutzeroberflächen basierend auf veralteten Konzepten aus den 1990er Jahren zu lösen. Diese Lösungen sind oft proprietär, teuer und bieten wenig Möglichkeiten zur Erweiterung und Anpassung. Oft müssen Organisationen ihre Arbeitsabläufe an die Software anpassen, anstatt die Software an ihre Bedürfnisse anzupassen.
-  - Moderne Lösungen weisen oft nicht die erforderlichen Funktionen auf, um die Einhaltung von Vorschriften und Standards sicherzustellen.
+  - Herkömmliche Dokumenten Management Systeme haben versucht, diese Probleme mit umständlichen, überladenen und verwirrenden Benutzeroberflächen zu lösen. Häufig basieren diese auf veralteten Konzepten aus den 1990er Jahren. Diese Systeme sind oft proprietär, teuer und bieten wenig Möglichkeiten zur Erweiterung und Anpassung. Oft müssen Organisationen ihre Arbeitsabläufe an die Software anpassen, anstatt die Software an ihre Bedürfnisse anzupassen.
+  - Moderne Lösungen hingegen weisen oft nicht die erforderlichen Funktionen auf, um die Einhaltung von Vorschriften und Standards sicherzustellen.
 featureHeadline: Hier kommt Supertray ins Spiel.
-featureParagraph: Supertray revolutioniert das Dokumentenmanagement mit innovative Funktionen, die die Zusammenarbeit effizienter, transparenter und sicherer gestalten, während <strong class="font-extrabold">alle wichtigen Komponenten Open Source</strong> sind und bleiben.
+featureParagraph: Supertray revolutioniert das Dokumentenmanagement mit innovativen Funktionen, die die Zusammenarbeit effizienter, transparenter und sicherer gestalten, während <strong class="font-extrabold">alle wichtigen Komponenten Open Source</strong> sind und bleiben.
 featureGrid:
   - headline: Open Source
     paragraph: Alle Kernkomponenten, die für das Hosting von Supertray benötigt werden, werden unter einer Open-Source-Lizenz veröffentlicht.
@@ -51,12 +51,12 @@ featureGrid:
     paragraph: Supertray bietet eine API und lässt sich nahtlos mit anderen Softwarelösungen integrieren, um einen reibungslosen Datenaustausch zu ermöglichen.
     icon: puzzle
   - headline: Versionierung & Archivierung
-    paragraph: Durch revisionssichere Versionierung und Archivierung stellt Supertray sicher, dass alle Vorschriften eingehalten werden.
+    paragraph: Durch revisionssichere Versionierung und Archivierung stellt Supertray eine Basis dar, mit der alle Vorschriften eingehalten werden können.
     icon: version
-  - headline: Arbeitsabläufe
+  - headline: Workflows
     paragraph: Individuell anlegbare Workflows helfen dabei, Standardprozesse für die Arbeit mit Dokumente im Unternehmen zu etablieren.
     icon: flow
   - headline: Designorientiert
-    paragraph: Mit einem Fokus auf Design entwickelt, bietet Supertray eine intuitive Benutzeroberfläche für eine angenehme Arbeitsumgebung.
+    paragraph: Mit einem Fokus auf Design entwickelt, bietet Supertray eine intuitive Benutzeroberfläche, die die Zusammenarbeit erleichtert.
     icon: window
 ---
