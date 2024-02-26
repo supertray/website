@@ -43,12 +43,13 @@ const t = useTranslations(lang);
 >
   <a slot="right-nav" href="#waitlist">{t('joinWaitlist')}</a>
   <picture class="w-screen overflow-hidden absolute top-[-151px] z-[0] pointer-events-none h-[912px]">
-    <source srcset="/rainbow-bg.png" type="image/png" />
+    <source srcset="/rainbow-png@xs-min.png" type="image/png" media="(max-width: 420px)" />
+    <source srcset="/rainbow-png@sm-min.png" type="image/png" media="(min-width: 421px) and (max-width: 720px)" />
+    <source srcset="/rainbow-bg@2x-min.png" type="image/png" media="(min-width: 721px) and (min-resolution: 120dpi)" />
+    <source srcset="/rainbow-bg@1x-min.png" type="image/png" media="(min-width: 721px) and (max-resolution: 119dpi)" />
     <img
       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
       alt="background"
-      width="1440"
-      height="912"
       class="absolute left-1/2 -translate-x-1/2 w-[1440px] h-[912px] object-cover pointer-events-none"
     />
   </picture>
