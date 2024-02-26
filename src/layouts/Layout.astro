@@ -4,6 +4,7 @@ import '@radix-ui/colors/orange.css';
 import '@radix-ui/colors/sand.css';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import { languages } from '../i18n/ui';
+import RemixIcon from '../components/RemixIcon.astro';
 
 interface Props {
   title: string;
@@ -67,9 +68,17 @@ const langs = Object.keys(languages);
     <slot />
     <div class="flex-grow" aria-hidden="true"></div>
     <footer class="block text-sm">
-      <div class="flex justify-between max-w-[1440px] w-full mx-auto p-6">
+      <div
+        class="flex flex-col-reverse items-center sm:flex-row gap-4 justify-between max-w-[1440px] w-full mx-auto p-6"
+      >
         <div>© {year}</div>
         <div class="flex items-center gap-4">
+          <a href="https://x.com/supertrayapp" title="X (Twitter)">
+            <RemixIcon name="twitter-x" className="w-5 h-5" />
+          </a>
+          <a href="https://github.com/supertray" title="Github">
+            <RemixIcon name="github" className="w-5 h-5" />
+          </a>
           <a href={`/${lang}/legal`}>
             {t('footer.legal')}
           </a>
