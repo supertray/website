@@ -31,7 +31,7 @@ const { content } = Astro.props;
     { href: '/de/imprint', lang: 'de' },
   ]}
 >
-  <div class="container-small w-full py-16 prose">
+  <div class="container-small w-full py-16 prose prose-neutral dark:prose-invert">
     <h2>{content.data.title}</h2>
     <p>
       <Fragment set:html={content.data.content} />
@@ -50,6 +50,7 @@ const { content } = Astro.props;
       setTimeout(() => {
         mailtoAHref.href = `mailto:${emailPart1}`;
         mailtoAHref.href += `.${emailPart2}@`;
+        ``;
         mailtoAHref.href += `${emailDomain1}`;
         mailtoAHref.href += `.${emailDomain2}`;
       }, 200);
