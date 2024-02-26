@@ -9,13 +9,13 @@ export async function getStaticPaths() {
         lang: 'de',
       },
       props: {
-        content: await getEntry('legal', 'de'),
+        content: await getEntry('privacy', 'de'),
       },
     },
     {
       params: { lang: 'en' },
       props: {
-        content: await getEntry('legal', 'en'),
+        content: await getEntry('privacy', 'en'),
       },
     },
   ];

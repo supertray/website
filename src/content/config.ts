@@ -41,4 +41,5 @@ const legalCollection = defineCollection({
 export const collections = {
   home: homeCollection,
   legal: legalCollection,
+  privacy: legalCollection,
 };

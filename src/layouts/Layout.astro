@@ -29,7 +29,7 @@ const langs = Object.keys(languages);
     <meta charset="UTF-8" />
     <meta name="description" content={description || t('head.description')} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/supertray-favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Supertray - {title}</title>
     {i18nAlternates?.map((alternate) => <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />)}
@@ -75,6 +75,7 @@ const langs = Object.keys(languages);
         </div>
       </div>
     </footer>
+    <script is:inline defer data-domain="supertray.app" src="/script.min.js"></script>
   </body>
 </html>
 
