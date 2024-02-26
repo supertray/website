@@ -1,16 +1,19 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const entry = await getEntry('home', 'en');
 ---
 
 <Layout
-  title=""
+  title={entry.data.title}
   i18nAlternates={[
     { lang: 'de', href: 'https://supertray.app/de/' },
     { lang: 'en', href: 'https://supertray.app/en/' },
   ]}
 >
   <!-- Waits 1 second and then redirects to default -->
-  <meta slot="head" http-equiv="refresh" content="1;url=/en/" />
+  <meta slot="head" http-equiv="refresh" content="0.2;url=/en/" />
 </Layout>
 <script>
   // Redirects to the default language based on the user's browser language

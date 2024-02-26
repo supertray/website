@@ -32,7 +32,11 @@ const langs = Object.keys(languages);
     <link rel="icon" type="image/svg+xml" href="/supertray-favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Supertray - {title}</title>
-    {i18nAlternates?.map((alternate) => <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />)}
+    {
+      i18nAlternates?.map((alternate) => (
+        <link rel="alternate" hreflang={alternate.lang} href={`https://supertray.app${alternate.href}`} />
+      ))
+    }
     <slot name="head" />
   </head>
   <body class="min-h-screen w-full bg-sand-1 dark:bg-sand-2 flex flex-col">
@@ -75,7 +79,12 @@ const langs = Object.keys(languages);
         </div>
       </div>
     </footer>
-    <script is:inline defer data-domain="supertray.app" src="/script.min.js"></script>
+    <script
+      is:inline
+      defer
+      data-api="https://analytics.gridventures.de/api/event"
+      data-domain="supertray.app"
+      src="/script.min.js"></script>
   </body>
 </html>
 
