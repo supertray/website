@@ -31,10 +31,32 @@ const { content } = Astro.props;
     { href: '/de/imprint', lang: 'de' },
   ]}
 >
-  <div class="container-small w-full py-16">
-    <h1 class="text-3xl font-bold mb-10">{content.data.title}</h1>
+  <div class="container-small w-full py-16 prose">
+    <h2>{content.data.title}</h2>
     <p>
       <Fragment set:html={content.data.content} />
     </p>
   </div>
 </Layout>
+
+<script>
+  const mailtoAHref = document.getElementById('contact.email') as HTMLAnchorElement | null;
+  console.log(mailtoAHref);
+  if (mailtoAHref) {
+    const emailPart1 = 'phil';
+    const emailPart2 = 'schaffarzyk';
+    const emailDomain1 = 'gmail';
+    const emailDomain2 = 'com';
+    mailtoAHref.addEventListener('mouseover', () => {
+      setTimeout(() => {
+        mailtoAHref.href = `mailto:${emailPart1}`;
+        mailtoAHref.href += `.${emailPart2}@`;
+        mailtoAHref.href += `${emailDomain1}`;
+        mailtoAHref.href += `.${emailDomain2}`;
+      }, 200);
+    });
+    mailtoAHref.addEventListener('mouseout', () => {
+      mailtoAHref.href = 'mailto:hashy';
+    });
+  }
+</script>

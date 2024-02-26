@@ -1,5 +1,6 @@
 ---
-headline1: Paperless office is not working.
+title: Innovative Open Source Document Management
+headline1: The paperless office is broken.
 headline2: We are fixing it in the cloud or <span class="text-orange-10">on your server.</span>
 slackMessages:
   - - displayName: Sebastian
@@ -55,9 +56,9 @@ featureGrid:
     paragraph: Supertray offers revision-proof versioning and archiving, ensuring compliance with all regulations.
     icon: version
   - headline: Workflows
-    paragraph: Supertray offers an open API and integrates with other software to ensure smooth data exchange.
+    paragraph: Customizable workflows help to establish standard processes for working with documents in your organization.
     icon: flow
   - headline: Design-Driven
-    paragraph: Developed with design in mind, Supertray has an intuitive user interface that provides a pleasant working environment.
+    paragraph: Developed with design in mind, Supertray has an intuitive user interface to provide an enjoyable working environment.
     icon: window
 ---

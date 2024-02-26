@@ -1,3 +1,4 @@
+import tailwindTypoPlugin from '@tailwindcss/typography';
 import { createPlugin } from 'windy-radix-palette';
 
 const colors = createPlugin({
@@ -13,5 +14,5 @@ export default {
       colors: {},
     },
   },
-  plugins: [colors.plugin],
+  plugins: [colors.plugin, tailwindTypoPlugin],
 };

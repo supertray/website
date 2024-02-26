@@ -11,9 +11,10 @@ interface Props {
     lang: 'de' | 'en';
     href: string;
   }[];
+  description?: string;
 }
 
-const { title, i18nAlternates } = Astro.props;
+const { title, i18nAlternates, description } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -26,7 +27,7 @@ const langs = Object.keys(languages);
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description || t('head.description')} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -37,7 +38,7 @@ const langs = Object.keys(languages);
   <body class="min-h-screen w-full bg-sand-1 dark:bg-sand-2 flex flex-col">
     <header id="nav" class="sticky z-20 top-0">
       <div class="max-w-[1440px] w-full mx-auto flex justify-between px-6 py-4 align-center transition">
-        <h2 class="text-xl font-bold text-sand-12">Supertray</h2>
+        <a href={`/${lang}/`}><h1 class="text-xl font-bold text-sand-12">Supertray</h1></a>
         <div class="flex items-center gap-5">
           <div class="flex items-center gap-0.5">
             {
@@ -61,10 +62,10 @@ const langs = Object.keys(languages);
     </header>
     <slot />
     <div class="flex-grow" aria-hidden="true"></div>
-    <footer class="block">
+    <footer class="block text-sm">
       <div class="flex justify-between max-w-[1440px] w-full mx-auto p-6">
         <div>© {year}</div>
-        <div class="text-sm flex items-center gap-4">
+        <div class="flex items-center gap-4">
           <a href={`/${lang}/legal`}>
             {t('footer.legal')}
           </a>

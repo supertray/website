@@ -1,6 +1,7 @@
 ---
+title: Innovatives Open-Source Dokumentenmanagement
 headline1: Das papierlose Büro funktioniert nicht.
-headline2: Mit uns schon. In der Cloud oder <span class="text-orange-10">auf deinem Server.</span>
+headline2: Wir beheben das. In der Cloud oder <span class="text-orange-10">auf deinem Server.</span>
 slackMessages:
   - - displayName: Sebastian
       avatar: /avatar/sebastian
@@ -33,28 +34,29 @@ slackMessages:
       time: '13:56'
       index: 5
 paragraphs:
-  - p1
-  - p2
-  - p3
-featureHeadline: h
-featureParagraph: p4
+  - Die Zusammenarbeit mit Dokumenten und Dateien gestaltet sich oft kompliziert, ist irreführend und zeitaufwändig. Menschen verbringen unnötig viel Zeit damit, Dokumente zu suchen, zu organisieren und zu teilen.
+  - Versionierungskonflikte und manuelle Genehmigungsprozesse bremsen Arbeitsabläufe aus und führen zu Frustration. Ein Mangel an Transparenz und Sicherheit beim Teilen von Dokumenten kann zu Datenlecks und Compliance-Risiken führen.
+  - Herkömmliche Dokumentenverwaltungslösungen haben versucht, diese Probleme mit umständlichen, überladenen und verwirrenden Benutzeroberflächen basierend auf veralteten Konzepten aus den 1990er Jahren zu lösen. Diese Lösungen sind oft proprietär, teuer und bieten wenig Möglichkeiten zur Erweiterung und Anpassung. Oft müssen Organisationen ihre Arbeitsabläufe an die Software anpassen, anstatt die Software an ihre Bedürfnisse anzupassen.
+  - Moderne Lösungen weisen oft nicht die erforderlichen Funktionen auf, um die Einhaltung von Vorschriften und Standards sicherzustellen.
+featureHeadline: Hier kommt Supertray ins Spiel.
+featureParagraph: Supertray revolutioniert das Dokumentenmanagement mit innovative Funktionen, die die Zusammenarbeit effizienter, transparenter und sicherer gestalten, während <strong class="font-extrabold">alle wichtigen Komponenten Open Source</strong> sind und bleiben.
 featureGrid:
-  - headline: headline
-    paragraph: paragraph
+  - headline: Open Source
+    paragraph: Alle Kernkomponenten, die für das Hosting von Supertray benötigt werden, werden unter einer Open-Source-Lizenz veröffentlicht.
     icon: globe
-  - headline: headline
-    paragraph: paragraph
+  - headline: KI-basierte Erkennung
+    paragraph: Mit einem optionalen KI-Modul kann Supertray automatisch Dokumente klassifizieren und Daten strukturiert extrahieren.
     icon: magic
-  - headline: headline
-    paragraph: paragraph
+  - headline: Integrierbar & Erweiterbar
+    paragraph: Supertray bietet eine API und lässt sich nahtlos mit anderen Softwarelösungen integrieren, um einen reibungslosen Datenaustausch zu ermöglichen.
     icon: puzzle
-  - headline: headline
-    paragraph: paragraph
+  - headline: Versionierung & Archivierung
+    paragraph: Durch revisionssichere Versionierung und Archivierung stellt Supertray sicher, dass alle Vorschriften eingehalten werden.
     icon: version
-  - headline: headline
-    paragraph: paragraph
+  - headline: Arbeitsabläufe
+    paragraph: Individuell anlegbare Workflows helfen dabei, Standardprozesse für die Arbeit mit Dokumente im Unternehmen zu etablieren.
     icon: flow
-  - headline: headline
-    paragraph: paragraph
+  - headline: Designorientiert
+    paragraph: Mit einem Fokus auf Design entwickelt, bietet Supertray eine intuitive Benutzeroberfläche für eine angenehme Arbeitsumgebung.
     icon: window
 ---

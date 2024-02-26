@@ -35,7 +35,7 @@ const t = useTranslations(lang);
 
 {/* eslint-disable @typescript-eslint/ban-ts-comment */}
 <Layout
-  title="Home"
+  title={content.data.title}
   i18nAlternates={[
     { lang: 'de', href: '/de/' },
     { lang: 'en', href: '/en/' },
@@ -76,12 +76,12 @@ const t = useTranslations(lang);
             >
               {messages.map(({ message, index, ...data }) => {
                 const className = clsx({
-                  'rotate-[5deg]': index === 0,
-                  '-rotate-2 mt-[20px]': index === 1,
-                  'rotate-[-4deg] mt-[-3px] ml-[15px]': index === 2,
-                  'rotate-3 mt-[7px] ml-[-40px]': index === 3,
+                  'rotate-[5deg] ml-16 md:ml-0': index === 0,
+                  '-rotate-2 -mt-4 -ml-10 md:ml-0 md:mt-[20px]': index === 1,
+                  'rotate-[1deg] md:rotate-[-4deg] ml-24 -mt-6 md:mt-[-3px] md:ml-[15px]': index === 2,
+                  'rotate-3 mt-0 ml-10 md:mt-[7px] md:ml-[-40px]': index === 3,
                   '-rotate-2 mt-[-5px] ml-[-10px]': index === 4,
-                  'rotate-1 mt-[3px] ml-[-25px]': index === 5,
+                  'rotate-1 mt-[3px] ml-20 md:ml-[-25px]': index === 5,
                 });
 
                 return (
