@@ -107,6 +107,7 @@ export function WaitlistForm(props: { className?: string; translations: (typeof 
         return props.translations['waitlistForm.success'];
       },
       error: (error) => {
+        createCalc();
         return error;
       },
     });
@@ -115,13 +116,17 @@ export function WaitlistForm(props: { className?: string; translations: (typeof 
   const [result, setResult] = createSignal(-1);
   const [math, setMath] = createSignal('');
 
-  onMount(() => {
+  const createCalc = () => {
     const math1 = Math.ceil(Math.random() * 10) + Math.floor(Math.random() * 10);
     const math2 = Math.ceil(Math.random() * 10) + Math.floor(Math.random() * 10);
     const math = `${math1} + ${math2} =`;
     const result = math1 + math2;
     setResult(result);
     setMath(math);
+  };
+
+  onMount(() => {
+    createCalc();
   });
 
   return (
@@ -129,6 +134,9 @@ export function WaitlistForm(props: { className?: string; translations: (typeof 
       class="grid md:grid-cols-12 py-10 gap-5"
       classList={{ [props.className!]: !!props.className }}
       onSubmit={handleSubmit}
+      onError={() => {
+        createCalc();
+      }}
     >
       <Field name="first_name" validate={[required(props.translations['form.validation.required'])]}>
         {(field, fprops) => (
