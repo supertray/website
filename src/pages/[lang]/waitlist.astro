@@ -1,0 +1,37 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { WaitlistForm } from '../../components/solid/JoinWaitlist.tsx';
+import { getLangFromUrl } from '../../i18n/utils';
+import { ui } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  return [
+    {
+      params: {
+        lang: 'de',
+      },
+      props: {
+        content: await getEntry('waitlist', 'de'),
+      },
+    },
+    {
+      params: { lang: 'en' },
+      props: {
+        content: await getEntry('waitlist', 'en'),
+      },
+    },
+  ];
+}
+
+const { content } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+---
+
+<Layout title={content!.data.title}>
+  <div class="container-small text-sand-12 py-16">
+    <h2 class="text-[1.75rem] leading-[2.375rem] tracking-[0.2px] font-bold mb-4">{content!.data.title}</h2>
+    <p class="text-lg font-medium"><Fragment set:html={content!.data.paragraph} /></p>
+    <WaitlistForm client:only translations={ui[lang]} />
+  </div>
+</Layout>

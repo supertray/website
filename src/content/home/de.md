@@ -59,4 +59,7 @@ featureGrid:
   - headline: Designorientiert
     paragraph: Mit einem Fokus auf Design entwickelt, bietet Supertray eine intuitive Benutzeroberfläche, die die Zusammenarbeit erleichtert.
     icon: window
+joinWaitlist:
+  copy: Wir arbeiten derzeit an der ersten Version unseres Produkts. Wenn du daran interessiert bist, einer der ersten Nutzer zu sein, trete unserer Warteliste bei. Wir werden dich benachrichtigen, sobald wir bereit sind, zu starten.
+  cta: Der Warteliste beitreten
 ---

@@ -27,6 +27,10 @@ const homeCollection = defineCollection({
         icon: z.string(),
       }),
     ),
+    joinWaitlist: z.object({
+      copy: z.string(),
+      cta: z.string(),
+    }),
   }),
 });
 
@@ -38,8 +42,17 @@ const legalCollection = defineCollection({
   }),
 });
 
+const waitlistCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    paragraph: z.string(),
+  }),
+});
+
 export const collections = {
   home: homeCollection,
   legal: legalCollection,
   privacy: legalCollection,
+  waitlist: waitlistCollection,
 };

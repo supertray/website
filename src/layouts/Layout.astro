@@ -3,6 +3,7 @@ import '../index.css';
 import '@radix-ui/colors/orange.css';
 import '@radix-ui/colors/sand.css';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
 import { languages } from '../i18n/ui';
 import RemixIcon from '../components/RemixIcon.astro';
 
@@ -21,7 +22,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
 
-const langs = Object.keys(languages);
+const langs = Object.entries(languages);
 ---
 
 <!doctype html>
@@ -45,22 +46,6 @@ const langs = Object.keys(languages);
       <div class="max-w-[1440px] w-full mx-auto flex justify-between px-6 py-4 align-center transition">
         <a href={`/${lang}/`}><h1 class="text-xl font-bold text-sand-12">Supertray</h1></a>
         <div class="flex items-center gap-5">
-          <div class="flex items-center gap-0.5">
-            {
-              langs.map((l) => (
-                <a
-                  href={`/${Astro.url.pathname.replace(/^\/(de|en)/, l)}`}
-                  class="text-sand-12 uppercase rounded-sm text-center px-1.5 py-0.5 -my-0.5 transition"
-                  class:list={{
-                    'font-medium pointer-events-none bg-transparent': lang === l,
-                    'text-opacity-50 hover:text-opacity-100 hover:bg-sand-4': lang !== l,
-                  }}
-                >
-                  {l}
-                </a>
-              ))
-            }
-          </div>
           <slot name="nav-right" />
         </div>
       </div>
@@ -73,6 +58,24 @@ const langs = Object.keys(languages);
       >
         <div>© {year}</div>
         <div class="flex items-center gap-4">
+          <div class="flex items-center gap-0.5 border-r border-sand-5 pr-2.5">
+            {
+              langs.map(([l, v]) => (
+                <a
+                  href={`/${Astro.url.pathname.replace(/^\/(de|en)/, l)}`}
+                  class="text-sand-12 uppercase rounded-md text-sm text-center leading-5 px-1.5 py-1 transition"
+                  class:list={{
+                    'font-medium pointer-events-none bg-transparent': lang === l,
+                    'text-opacity-50 hover:text-opacity-100 hover:bg-sand-4': lang !== l,
+                  }}
+                  aria-disabled={lang === l}
+                  title={`${useTranslations(l as Lang)('nav.switchTo')} ${v}`}
+                >
+                  {l}
+                </a>
+              ))
+            }
+          </div>
           <a href="https://x.com/supertrayapp" title="X (Twitter)">
             <RemixIcon name="twitter-x" className="w-5 h-5" />
           </a>

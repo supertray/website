@@ -61,4 +61,8 @@ featureGrid:
   - headline: Design-Driven
     paragraph: Developed with design in mind, Supertray has an intuitive user interface to provide an enjoyable working environment.
     icon: window
+
+joinWaitlist:
+  copy: If you’re interested we would love to have you on our bord when we launch open source later this year. Join our waitlist and we will notify you as soon as we are ready to launch.
+  cta: Join the Waitlist
 ---

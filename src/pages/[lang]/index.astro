@@ -41,7 +41,13 @@ const t = useTranslations(lang);
     { lang: 'en', href: '/en/' },
   ]}
 >
-  <a slot="right-nav" href="#waitlist">{t('joinWaitlist')}</a>
+  <a
+    slot="nav-right"
+    href={`/${lang}/waitlist`}
+    class="bg-sand-3 text-sand-12 px-2 py-1 text-sm leading-5 rounded-md hover:bg-sand-4 active:bg-sand-5 ring-1 ring-sand-12/10 shadow-sm transition"
+  >
+    {t('joinWaitlist')}
+  </a>
   <picture class="w-screen overflow-hidden absolute top-[-151px] z-[0] pointer-events-none h-[912px]">
     <source srcset="/rainbow-png@xs-min.png" type="image/png" media="(max-width: 420px)" />
     <source srcset="/rainbow-png@sm-min.png" type="image/png" media="(min-width: 421px) and (max-width: 720px)" />
@@ -106,15 +112,15 @@ const t = useTranslations(lang);
       }
     </div>
     <div class="py-10 max-w-40 mx-auto">
-      <hr class="border-2 rounded-full border-sand-4/50" />
+      <hr class="border-2 rounded-full border-sand-4/50 dark:border-sand-6/50" />
     </div>
-    <div class="container-small">
+    <div class="container-small mb-10">
       <h3 class="text-[1.75rem] leading-[2.375rem] tracking-[0.2px] font-bold mb-5">{content.data.featureHeadline}</h3>
       <p class="text-lg font-medium">
         <Fragment set:html={content.data.featureParagraph} />
       </p>
     </div>
-    <div class="container grid grid-cols-1 md:grid-cols-2 gap-5 my-10">
+    <div class="container grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
       {
         content.data.featureGrid.map((f) => (
           <div class="bg-sand-3/75 p-5 rounded-xl ring-1 ring-sand-12/[0.12] shadow-sm">
@@ -126,6 +132,17 @@ const t = useTranslations(lang);
           </div>
         ))
       }
+    </div>
+    <div class="container-small mb-16">
+      <p class="text-lg font-medium mb-6">
+        <Fragment set:html={content.data.joinWaitlist.copy} />
+      </p>
+      <a
+        href={`/${lang}/waitlist`}
+        class="bg-orange-9 text-white px-4 py-2 text-base rounded-lg hover:bg-orange-10 active:bg-orange-10/90 ring-1 ring-sand-12/10 shadow-sm transition"
+      >
+        {content.data.joinWaitlist.cta}
+      </a>
     </div>
   </main>
 </Layout>
