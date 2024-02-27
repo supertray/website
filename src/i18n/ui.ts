@@ -44,7 +44,7 @@ export const ui = {
     'waitlistForm.useCase':
       'Erzähle uns ein bisschen über deine Problemstellung. Das hilft uns, deine Bedürfnisse besser zu verstehen.',
     'form.validation.required': 'Dieses Feld ist erforderlich',
-    'form.validation.email': 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
+    'form.validation.email': 'Bitte gib eine gültige E-Mail-Adresse ein',
     'form.validation.invalidResult': 'Das Ergebnis ist nicht korrekt',
     'waitlistForm.alreadyOnWaitlist': 'Du stehst bereits auf der Warteliste',
     'waitlistForm.success': 'Du stehst jetzt auf der Warteliste.',
