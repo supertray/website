@@ -46,7 +46,7 @@ export const ui = {
     'form.validation.required': 'Dieses Feld ist erforderlich',
     'form.validation.email': 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
     'form.validation.invalidResult': 'Das Ergebnis ist nicht korrekt',
-    'waitlistForm.alreadyOnWaitlist': 'Sie sind bereits auf der Warteliste',
+    'waitlistForm.alreadyOnWaitlist': 'Du stehst bereits auf der Warteliste',
     'waitlistForm.success': 'Du stehst jetzt auf der Warteliste.',
     'loading': 'Lädt...',
     'waitlistForm.enterResult': 'Ergebnis eingeben',
