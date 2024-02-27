@@ -1,6 +1,6 @@
 import { TextField } from '@kobalte/core';
 import { type SubmitHandler, createForm, email, required } from '@modular-forms/solid';
-import { splitProps } from 'solid-js';
+import { createSignal, onMount, splitProps } from 'solid-js';
 import { Toaster, toast } from 'solid-sonner';
 
 import { supabase } from '../../api/supabase';
@@ -33,6 +33,7 @@ function TextInput(props: { label: string; name: string; error?: string } & Text
         name={p.name}
         classList={{
           'invalid:ring-red-10': !!p.error,
+          ...rest.classList,
         }}
       />
       <TextField.ErrorMessage class="text-sm text-red-10 p-1">{p.error}</TextField.ErrorMessage>
@@ -58,6 +59,7 @@ function TextArea(props: { label: string; name: string; error?: string } & TextF
         name={p.name}
         classList={{
           'invalid:ring-red-10': !!p.error,
+          ...rest.classList,
         }}
       />
       <TextField.ErrorMessage class="text-sm text-red-10 p-1">{p.error}</TextField.ErrorMessage>
@@ -110,10 +112,17 @@ export function WaitlistForm(props: { className?: string; translations: (typeof 
     });
   };
 
-  const math1 = Math.ceil(Math.random() * 10) + Math.floor(Math.random() * 10);
-  const math2 = Math.ceil(Math.random() * 10) + Math.floor(Math.random() * 10);
-  const math = `${math1} + ${math2}`;
-  const result = math1 + math2;
+  const [result, setResult] = createSignal(-1);
+  const [math, setMath] = createSignal('');
+
+  onMount(() => {
+    const math1 = Math.ceil(Math.random() * 10) + Math.floor(Math.random() * 10);
+    const math2 = Math.ceil(Math.random() * 10) + Math.floor(Math.random() * 10);
+    const math = `${math1} + ${math2} =`;
+    const result = math1 + math2;
+    setResult(result);
+    setMath(math);
+  });
 
   return (
     <Form
@@ -191,13 +200,20 @@ export function WaitlistForm(props: { className?: string; translations: (typeof 
           />
         )}
       </Field>
-      <div class="sm:col-span-2 flex items-center -mb-3 sm:mb-0">{`${math} =`}</div>
+      <div
+        class="sm:col-span-2 flex items-center -mb-3 sm:mb-0 transition"
+        classList={{
+          'opacity-0': math().length === 0,
+        }}
+      >
+        {math()}
+      </div>
       <Field
         name="captcha_math"
         validate={[
           required(props.translations['form.validation.required']),
           (v) => {
-            if (v !== result.toString()) {
+            if (v !== result().toString()) {
               return props.translations['form.validation.invalidResult'];
             }
             return '';
@@ -210,11 +226,20 @@ export function WaitlistForm(props: { className?: string; translations: (typeof 
             name={field.name}
             label={props.translations['waitlistForm.enterResult']}
             class="col-span-12 sm:col-span-10"
+            classList={{
+              'transition': true,
+              'opacity-0': math().length === 0,
+            }}
             error={field.error}
           />
         )}
       </Field>
-      <div class="flex justify-center col-span-12">
+      <div
+        class="flex justify-center col-span-12 transition"
+        classList={{
+          'opacity-0': math().length === 0,
+        }}
+      >
         <button
           type="submit"
           class="bg-sand-3 px-3 py-1.5 text-base leading-6 rounded-lg hover:bg-sand-4 active:bg-sand-5 ring-1 ring-sand-12/10 shadow-sm transition"

@@ -32,6 +32,6 @@ const lang = getLangFromUrl(Astro.url);
   <div class="container-small text-sand-12 py-16">
     <h2 class="text-[1.75rem] leading-[2.375rem] tracking-[0.2px] font-bold mb-4">{content!.data.title}</h2>
     <p class="text-lg font-medium"><Fragment set:html={content!.data.paragraph} /></p>
-    <WaitlistForm translations={ui[lang]} />
+    <WaitlistForm client:visible translations={ui[lang]} />
   </div>
 </Layout>
