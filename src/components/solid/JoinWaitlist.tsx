@@ -29,7 +29,7 @@ function TextInput(props: { label: string; name: string; error?: string } & Text
       <TextField.Input
         {...rest}
         placeholder={p.label ? `${p.label}${rest.required ? '*' : ''}` : undefined}
-        class="w-full px-3 py-1.5 ring-2 ring-sand-12/10 bg-transparent rounded-lg focus:ring-orange-9 focus:outline-none text-base leading-6 placeholder:text-sand-8 shadow-sm"
+        class="w-full px-3 py-1.5 ring-2 ring-sand-12/20 bg-transparent rounded-lg focus:ring-orange-9 focus:outline-none text-base leading-6 placeholder:text-sand-12/[0.35] shadow-sm"
         name={p.name}
         classList={{
           'invalid:ring-red-10': !!p.error,
@@ -55,7 +55,7 @@ function TextArea(props: { label: string; name: string; error?: string } & TextF
       <TextField.TextArea
         {...rest}
         placeholder={`${p.label}${rest.required ? '*' : ''}`}
-        class="resize-none w-full px-3 py-1.5 ring-2 ring-sand-12/10 bg-transparent rounded-lg focus:ring-orange-9 focus:outline-none text-base leading-6 placeholder:text-sand-8 shadow-sm"
+        class="resize-none w-full px-3 py-1.5 ring-2 ring-sand-12/20 bg-transparent rounded-lg focus:ring-orange-9 focus:outline-none text-base leading-6 placeholder:text-sand-12/[0.35] shadow-sm"
         name={p.name}
         classList={{
           'invalid:ring-red-10': !!p.error,
