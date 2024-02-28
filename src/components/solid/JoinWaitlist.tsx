@@ -239,6 +239,7 @@ export function WaitlistForm(props: { className?: string; translations: (typeof 
               'opacity-0': math().length === 0,
             }}
             error={field.error}
+            type="number"
           />
         )}
       </Field>
