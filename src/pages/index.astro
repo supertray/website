@@ -18,9 +18,10 @@ const entry = await getEntry('home', 'en');
 <script>
   // Redirects to the default language based on the user's browser language
   const lang = navigator.language;
+  const queryString = window.location.search;
   if (lang.includes('en')) {
-    window.location.replace(`/en/`);
+    window.location.replace(`/en/${queryString ? `?${queryString}` : ''}`);
   } else if (lang.includes('de')) {
-    window.location.replace(`/de/`);
+    window.location.replace(`/de/${queryString ? `?${queryString}` : ''}`);
   }
 </script>
