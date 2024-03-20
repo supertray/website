@@ -93,9 +93,23 @@ export function WaitlistForm(props: { className?: string; translations: (typeof 
           })
           .then(({ error }) => {
             if (error?.code === '23505') {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              /* @ts-expect-error */
+              window.plausible('Join Waitlist Error', {
+                props: { code: '23505', hint: 'Already on waitlist.', message: 'Unique constraint violation.' },
+              });
               rej(props.translations['waitlistForm.alreadyOnWaitlist']);
+            } else if (error) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              /* @ts-expect-error */
+              window.plausible('Join Waitlist Error', {
+                props: { code: error.code, hint: error.hint, message: error.message },
+              });
             }
             if (!error) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              /* @ts-expect-error */
+              window.plausible('Join Waitlist');
               res(true);
             }
           });

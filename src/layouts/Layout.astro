@@ -91,12 +91,17 @@ const langs = Object.entries(languages);
         </div>
       </div>
     </footer>
-    <script
-      is:inline
-      defer
-      data-api="https://analytics.gridventures.de/api/event"
-      data-domain="supertray.app"
-      src="/script.min.js"></script>
+    <script is:inline defer data-domain="supertray.app" src="/script.min.js"></script>
+    <script>
+      /* @ts-expect-error */
+      window.plausible =
+        /* @ts-expect-error */
+        window.plausible ||
+        function () {
+          /* @ts-expect-error */
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
   </body>
 </html>
 
